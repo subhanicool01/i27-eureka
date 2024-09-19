@@ -3,7 +3,7 @@ pipeline {
         label 'k8s-slave'
     }
     environment{
-        SERVICE_NAME = "i27-eureka"
+        SERVICE_NAME = "eureka"
         POM_VERSION = readMavenPom().getVersion()
         POM_PACKAGING = readMavenPom().getPackaging()
         DOCKER_HUB = "docker.io/subhanicool01"
