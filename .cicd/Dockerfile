@@ -1,3 +1,10 @@
+#now we are writing dockerfile
+# we are using docker to convert the jar file into artifacts
+# after mvn build ----> target/*jar file are there.
+# these jar files to use docker build convert into docker "image"
+
+
+
 # Dockefile for eureka , 
 FROM openjdk:18.0.2.1-jdk
 ARG JAR_DEST
