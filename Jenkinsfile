@@ -53,7 +53,7 @@ pipeline {
                   docker build --force-rm --no-cache --pull --rm=true --build-arg JAR_SOURCE=i27-${env.SERVICE_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING} -t ${env.DOCKER_HUB}/${env.SERVICE_NAME}:${GIT_COMMIT} ./.cicd
                   docker images
                   echo "*********************** Docker push *****************************"
-                  docker login -u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}
+                  docker login ${env.DOCKER_HUB}-u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}
                   docker push  ${env.DOCKER_HUB}/${env.SERVICE_NAME}:${GIT_COMMIT}
                 """
             }
