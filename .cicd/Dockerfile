@@ -9,9 +9,9 @@ ARG JAR_SOURCE
 ENV JAR_SOURCE ${JAR_SOURCE}
 ARG JAR_DEST
 ENV JAR_DEST ${JAR_DEST}
-RUN mkdir -p /opt/pricecut/
-WORKDIR /opt/pricecut
-COPY ["${JAR_SOURCE}", "/opt/price-cut/eureka.jar"]
+RUN mkdir -p /opt/eureka/
+WORKDIR /opt/eureka
+COPY ["${JAR_SOURCE}", "/opt/eureka.jar"]
 RUN chmod 777 /opt/pricecut/
 EXPOSE 8761
 CMD ["java", "-jar", "/opt/eureka/.jar"]
