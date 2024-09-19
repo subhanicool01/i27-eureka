@@ -11,7 +11,7 @@ ARG JAR_DEST
 ENV JAR_DEST ${JAR_DEST}
 RUN mkdir -p /opt/eureka/
 WORKDIR /opt/eureka
-COPY ["${JAR_SOURCE}", "/opt/eureka.jar"]
+COPY ["${JAR_SOURCE}", "/opt/i27/i27cart-eureka.jar"]
 RUN chmod 777 /opt/eureka/
 EXPOSE 8761
-CMD ["java", "-jar", "/opt/eureka.jar"]
+CMD ["java", "-jar", "/opt/i27/i27cart-eureka.jar"]
