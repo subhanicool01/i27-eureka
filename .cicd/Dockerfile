@@ -14,4 +14,4 @@ WORKDIR /opt/eureka
 COPY ["${JAR_SOURCE}", "/opt/eureka.jar"]
 RUN chmod 777 /opt/eureka/
 EXPOSE 8761
-CMD ["java", "-jar", "/opt/eureka/.jar"]
+CMD ["java", "-jar", "/opt/eureka.jar"]
