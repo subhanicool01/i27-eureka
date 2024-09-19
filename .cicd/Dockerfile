@@ -12,6 +12,6 @@ ENV JAR_DEST ${JAR_DEST}
 RUN mkdir -p /opt/eureka/
 WORKDIR /opt/eureka
 COPY ["${JAR_SOURCE}", "/opt/eureka.jar"]
-RUN chmod 777 /opt/pricecut/
+RUN chmod 777 /opt/eureka/
 EXPOSE 8761
 CMD ["java", "-jar", "/opt/eureka/.jar"]
