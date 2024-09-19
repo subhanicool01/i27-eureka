@@ -3,7 +3,7 @@ pipeline {
         label 'k8s-slave'
     }
     environment{
-        SERVICE_NAME = "eureka"
+        SERVICE_NAME = "i27-eureka"
         POM_VERSION = readMavenPom().getVersion()
         POM_PACKAGING = readMavenPom().getPackaging()
         DOCKER_HUB = "docker.io/subhanicool01"
@@ -47,10 +47,10 @@ pipeline {
             steps {
                 sh """
                   ls -la
-                  cp -f ${workspace}/target/${env.SERVICE_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING} ./.cicd
+                  cp -f ${workspace}/target/i27-${env.SERVICE_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING} ./.cicd
                   ls -la ./.cicd
                   echo "********************** Build docker image ************************"
-                  docker build --force-rm --no-cache --pull --rm=true --build-arg JAR_SOURCE=${env.SERVICE_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING} -t ${env.DOCKER_HUB}/${env.SERVICE_NAME}:${GIT_COMMIT} ./.cicd
+                  docker build --force-rm --no-cache --pull --rm=true --build-arg JAR_SOURCE=i27-${env.SERVICE_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING} -t ${env.DOCKER_HUB}/${env.SERVICE_NAME}:${GIT_COMMIT} ./.cicd
                   docker images
                   echo "*********************** Docker push *****************************"
                   docker login  -u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}
